@@ -26,3 +26,23 @@ db.categories.insert({title: 'Fashion'})
 
 - download ckeditor.com add to /public
 - - adds editor to body of add post
+
+
+## eLearning System
+- Express, Handlebars, Mongoose, Bcrypt, Passport
+- > mongo shell   > use elearn     -> db.createCollection('users'), students, classes, instructors
+- Using [Kickstart](http://www.99lime.com/elements/) on front-end
+- copy over css/js and example.html into layout.handlebars
+- move *header* into layout.handlebars and call this {{{body}}} 
+- move *form* into login.handlebars call {{>login}})
+- > mongo shell  db.classes.insert({title:'HTML', description:'my class description', instructor: 'Brad J'}); 
+- Create a `class model` in models/class.js  +  `getClasses` function
+- edit index.js (router) to GET all the classes    
+- edit classes.handlebar to *dynamically* pass in the classes we manually created
+- notice the 2nd param is 'limit' passes # of classes to GET
+- create new *classes Routes* and add app.use('/classes', classes);
+
+# Part 2
+- create global variable *isHome* to only display classes on home page
+- class details  =  new `getClassById` function, *'/:id/details*' route, _details.handlebars_ view
+- add {{#if user}} in details view to display form if logged in
