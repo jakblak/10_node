@@ -42,7 +42,7 @@ db.categories.insert({title: 'Fashion'})
 - notice the 2nd param is 'limit' passes # of classes to GET
 - create new *classes Routes* and add app.use('/classes', classes);
 
-# Part 2
+# Part 2        user: jack, 1111
 - create global variable *isHome* to only display classes on home page
 - class details  =  new `getClassById` function, *'/:id/details*' route, _details.handlebars_ view
 - add {{#if user}} in details view to display form if logged in
@@ -51,3 +51,6 @@ db.categories.insert({title: 'Fashion'})
 - in routes/users.js add Passport, reference to Models
 - in userSchema add saveStudent, saveInstructor methods  -> `Hash` password, use `Async` parallel 
 - - add *post('/signup'... )* route to: get form fields, check if valid, and save user
+- db.students.find().pretty()
+**Authentication**
+- add *router.post('/login')* in users route + passport methods

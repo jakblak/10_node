@@ -22,7 +22,7 @@ var User = module.exports = mongoose.model('User', userSchema);
 
 // Fetch User by ID
 module.exports.getUserById = function(id, callback) {
-  User.findById(callback);
+  User.findById(id, callback);
 }
 
 // Get User by Name
@@ -52,5 +52,13 @@ module.exports.saveInstructor = function(newUser, newInstructor, callback) {
     console.log('Instructor is being saved');
     // Updating both the user and instructor collection
     async.parallel([newUser.save, newInstructor.save], callback);
+  });
+}
+
+// Compare password
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+  bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    if (err) throw err;
+    callback(null, isMatch);
   });
 }
