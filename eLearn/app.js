@@ -14,6 +14,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/elearn');
 var db = mongoose.connection;
+async = require('async');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -66,7 +67,6 @@ app.use(flash());
 // Global Vars
 app.use(function( req, res, next) {
     res.locals.messages = require('express-messages')(req, res);
-
     if(req.url == '/') {
         res.locals.isHome = true;
     }

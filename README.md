@@ -46,3 +46,8 @@ db.categories.insert({title: 'Fashion'})
 - create global variable *isHome* to only display classes on home page
 - class details  =  new `getClassById` function, *'/:id/details*' route, _details.handlebars_ view
 - add {{#if user}} in details view to display form if logged in
+- new *User* model, user folder in views + signup page & user.js route
+- add Student and Instructor models
+- in routes/users.js add Passport, reference to Models
+- in userSchema add saveStudent, saveInstructor methods  -> `Hash` password, use `Async` parallel 
+- - add *post('/signup'... )* route to: get form fields, check if valid, and save user
