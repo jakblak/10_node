@@ -19,6 +19,8 @@ async = require('async');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var classes = require('./routes/classes');
+var students = require('./routes/students');
+var instructors = require('./routes/instructors');
 
 var app = express();
 
@@ -77,12 +79,17 @@ app.use(function( req, res, next) {
 app.get('*', function(req, res, next) {
     //put user into res.locals for easy access from templates
     res.locals.user = req.user || null;
+    if (req.user) {
+        res.locals.type = req.user.type;         // usertype will hold either student or instructor
+    }
     next();
 });
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/classes', classes);
+app.use('/students', students);
+app.use('/instructors', instructors);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,7 @@
 # [Udemy Node Course](https://www.udemy.com/learn-nodejs-by-building-10-projects/#/)
 
 ## NodeBlog
+- Monk, Multer, Jade
 *FEATURES*
 - add posts, image uploads, add categories, comments
 - show all posts on front page
@@ -54,3 +55,13 @@ db.categories.insert({title: 'Fashion'})
 - db.students.find().pretty()
 **Authentication**
 - add *router.post('/login')* in users route + passport methods
+- implement logout, ensureAuthenticate function, message depending on student/instructor
+
+# Part 3
+- new students route, in app.js, /routes folder and students view
+- signup for lessons, redirect to My Classes, display classes
+- create Instructor route, view, edit model -> edit details view to include {{type}} for dynamic routing
+- add GET and POST routes in *instructors.js* to create new lessons
+
+# Bookstore
+- Mongoose, Kraken, Dust

@@ -13,17 +13,17 @@ router.get('/signup', function(req, res, next) {
 
 router.post('/signup', function(req, res, next) {
   // Get Form Values
-  var first_name      = req.body.first_name;
-  var last_name       = req.body.last_name;
-  var street_address  = req.body.street_address;
-  var city        = req.body.city;
-  var state       = req.body.state;
-  var zip         = req.body.zip;
-  var email       = req.body.email;
-  var username    = req.body.username;
-  var password    = req.body.password;
-  var password2     = req.body.password2;
-  var type            = req.body.type;
+  var first_name = req.body.first_name;
+  var last_name = req.body.last_name;
+  var street_address = req.body.street_address;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  var email = req.body.email;
+  var username = req.body.username;
+  var password = req.body.password;
+  var password2 = req.body.password2;
+  var type = req.body.type;
 
   // Form Field Validation
   req.checkBody('first_name', 'First name field is required').notEmpty();
@@ -38,20 +38,20 @@ router.post('/signup', function(req, res, next) {
 
   if (errors) {
     res.render('users/signup', {
-        errors: errors,
-        first_name: first_name,
-        last_name: last_name,
-        street_address: street_address,
-        city: city,
-        state: state,
-        zip: zip,
-        email: email,
-        username: username,
-        password: password,
-        password2: password2
-      });
+      errors: errors,
+      first_name: first_name,
+      last_name: last_name,
+      street_address: street_address,
+      city: city,
+      state: state,
+      zip: zip,
+      email: email,
+      username: username,
+      password: password,
+      password2: password2
+    });
   } else {
-    var newUser = new User ({
+    var newUser = new User({
       email: email,
       username: username,
       password: password,
@@ -68,10 +68,10 @@ router.post('/signup', function(req, res, next) {
         zip: zip
       }],
       email: email,
-      username:username
+      username: username
     });
 
-    var newInstructor= new Instructor({
+    var newInstructor = new Instructor({
       first_name: first_name,
       last_name: last_name,
       address: [{
@@ -81,7 +81,7 @@ router.post('/signup', function(req, res, next) {
         zip: zip
       }],
       email: email,
-      username:username
+      username: username
     });
     if (type == 'student') {
       User.saveStudent(newUser, newStudent, function(err, user) {
@@ -102,7 +102,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function (err, user) {
+  User.getUserById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -113,28 +113,47 @@ router.post('/login', passport.authenticate('local', {
   }),
   function(req, res) {
     req.flash('success', 'You are now logged in');
-    res.redirect('/');
-});
-
+    var usertype = req.user.type;
+    res.redirect('/' + usertype + 's/classes');
+  });
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.getUserByUsername(username, function(err, user){
+    User.getUserByUsername(username, function(err, user) {
       if (err) throw err;
-      if(!user){
-        return done(null, false, { message: 'Unknown user ' + username });
+      if (!user) {
+        return done(null, false, {
+          message: 'Unknown user ' + username
+        });
       }
       User.comparePassword(password, user.password, function(err, isMatch) {
-          if (err) return done(err);
-          if(isMatch) {
-            return done(null, user);
-          } else {
-            console.log('Invalid Password');
-            // Success Message
-            return done(null, false, { message: 'Invalid password' });
-          }
+        if (err) return done(err);
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          console.log('Invalid Password');
+          // Success Message
+          return done(null, false, {
+            message: 'Invalid password'
+          });
+        }
       });
     });
   }
 ));
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  // Success Message
+  req.flash('success', "You have logged out");
+  res.redirect('/');
+});
+
+// only go to route if logged in
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/users/login');
+}
 
 module.exports = router;
