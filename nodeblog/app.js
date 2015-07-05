@@ -34,7 +34,6 @@ app.use(multer({
     dest: './public/images/uploads'
 }));
 
-// uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -70,7 +69,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect Flash
 app.use(flash());
-app.use(function( req, res, next) {
+app.use(function(req, res, next) {
     res.locals.messages = require('express-messages')(req, res);
     next();
 });
@@ -103,8 +102,6 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {

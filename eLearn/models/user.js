@@ -20,7 +20,7 @@ var userSchema = mongoose.Schema({
 
 var User = module.exports = mongoose.model('User', userSchema);
 
-// Fetch User by ID
+// Get User by ID
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 }
@@ -43,7 +43,7 @@ module.exports.saveStudent = function(newUser, newStudent, callback) {
   });
 }
 
-// Save Student
+// Save Instructor
 module.exports.saveInstructor = function(newUser, newInstructor, callback) {
   bcrypt.hash(newUser.password, 10, function(err, hash){
     if (err) throw err;

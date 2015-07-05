@@ -6,8 +6,8 @@ var db = require('monk')('localhost/nodeblog');
 router.get('/show/:id', function(req, res, next) {
   var posts = db.get('posts');
   posts.findById(req.params.id, function(err, post) {
-      res.render('show', {
-      "post" : post
+    res.render('show', {
+      "post": post
     });
   });
 });
@@ -18,8 +18,8 @@ router.get('/add', function(req, res) {
 
   categories.find({}, {}, function(err, categories) {
     res.render('addpost', {
-     "tittle" : "Add Post",
-     "categories" : categories
+      "tittle": "Add Post",
+      "categories": categories
     });
   });
 });
@@ -40,7 +40,7 @@ router.post('/add', function(req, res, next) {
     var mainImageExt = req.files.mainimage.extension;
     var mainImageSize = req.files.mainimage.size;
   } else {
-      var mainImageName = 'noimage.png';
+    var mainImageName = 'noimage.png';
   }
   // form validation
   req.checkBody('title', 'Title field is required').notEmpty();
@@ -102,12 +102,17 @@ router.post('/addcomment', function(req, res, next) {
     });
 
   } else {
-    var comment = {'name': name, 'email': email, 'body': body, 'commentdate': commentdate};
+    var comment = {
+      'name': name,
+      'email': email,
+      'body': body,
+      'commentdate': commentdate
+    };
     var posts = db.get('posts');
 
     // Submit to DB
     posts.update({
-      '_id': postid
+        '_id': postid
       }, {
         $push: {
           'comments': comment

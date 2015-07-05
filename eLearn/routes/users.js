@@ -83,6 +83,7 @@ router.post('/signup', function(req, res, next) {
       email: email,
       username: username
     });
+
     if (type == 'student') {
       User.saveStudent(newUser, newStudent, function(err, user) {
         console.log('student created');

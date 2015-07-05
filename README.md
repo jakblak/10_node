@@ -1,4 +1,4 @@
-# [Udemy Node Course](https://www.udemy.com/learn-nodejs-by-building-10-projects/#/)
+### [Udemy Node Course](https://www.udemy.com/learn-nodejs-by-building-10-projects/#/)
 
 ## NodeBlog
 - Monk, Multer, Jade
@@ -8,13 +8,10 @@
 - no Schema's
 - `styling` for posts, uploads, forms, flash message, logo, nav, ul/a/body
 - comments are an *embedded document* within the posts collection
-
 **Packages**
 - moment, mulk, multer, expressValidator, flash, mongo
-
 *Global Var's*   (in app.js)
 - app.locals.truncateText   =   don't display full text of on front page
-
 - scaffold express + add modules
 - in mongo shell  (with mongod running)
 use nodeblog
@@ -24,13 +21,13 @@ db.posts.insert({ title: 'Blog post one', category: 'technology', author: 'Brad 
 db.posts.find().pretty()
 db.categories.insert({title: 'Technology'})
 db.categories.insert({title: 'Fashion'})
-
 - download ckeditor.com add to /public
 - - adds editor to body of add post
 
 
 ## eLearning System
 - Express, Handlebars, Mongoose, Bcrypt, Passport
+- Sign up as Student or Instructor, Add classes option
 - > mongo shell   > use elearn     -> db.createCollection('users'), students, classes, instructors
 - Using [Kickstart](http://www.99lime.com/elements/) on front-end
 - copy over css/js and example.html into layout.handlebars
@@ -43,7 +40,7 @@ db.categories.insert({title: 'Fashion'})
 - notice the 2nd param is 'limit' passes # of classes to GET
 - create new *classes Routes* and add app.use('/classes', classes);
 
-# Part 2        user: jack, 1111
+### Part 2        user: jack, 1111
 - create global variable *isHome* to only display classes on home page
 - class details  =  new `getClassById` function, *'/:id/details*' route, _details.handlebars_ view
 - add {{#if user}} in details view to display form if logged in
@@ -57,11 +54,14 @@ db.categories.insert({title: 'Fashion'})
 - add *router.post('/login')* in users route + passport methods
 - implement logout, ensureAuthenticate function, message depending on student/instructor
 
-# Part 3
+### Part 3
 - new students route, in app.js, /routes folder and students view
 - signup for lessons, redirect to My Classes, display classes
 - create Instructor route, view, edit model -> edit details view to include {{type}} for dynamic routing
 - add GET and POST routes in *instructors.js* to create new lessons
 
-# Bookstore
-- Mongoose, Kraken, Dust
+## Bookstore
+- Mongoose, Dust, Kraken (MVC on top of Express), Foundation
+- eCommerce shop for books + CRUD admin area
+- yo kraken        + mongodb, mongoose, connect-flash, express-messages
+- > npm start
