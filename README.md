@@ -67,3 +67,4 @@ db.categories.insert({title: 'Fashion'})
 - > npm start
 - new Routes go in /controllers.  Add *books.js* for the 'details' page
 - `details.dust` in public/templates/books for the controller
+- added 'books' and 'categories' using mongo shell + 2 books

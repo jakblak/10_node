@@ -1,6 +1,9 @@
 {>"layouts/master" /}
 
 {<body}
+  {#books}
+  {.title}
+  {/books}
   <div class="large-3 columns book">
     <img src="/img/node1.jpg">
     <h4>Professinal Node.js</h4>
