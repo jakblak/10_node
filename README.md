@@ -65,3 +65,5 @@ db.categories.insert({title: 'Fashion'})
 - eCommerce shop for books + CRUD admin area
 - yo kraken        + mongodb, mongoose, connect-flash, express-messages
 - > npm start
+- new Routes go in /controllers.  Add *books.js* for the 'details' page
+- `details.dust` in public/templates/books for the controller
