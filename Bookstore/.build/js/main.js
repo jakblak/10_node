@@ -9,4 +9,5 @@ $(document).ready(function() {
     });
     window.location = '/manage/books';
   });
+
 });

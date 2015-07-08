@@ -2,7 +2,7 @@
 
 {<body}
   <h2>Categories</h2>
-  <p><a href="manage/books/add">Add Categories</a></p>
+  <p><a href="categories/add">Add Category</a></p>
   <table>
   <thead>
     <tr>

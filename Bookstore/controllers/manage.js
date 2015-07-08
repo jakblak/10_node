@@ -145,6 +145,11 @@ module.exports = function(router) {
     });
   });
 
+  // Display category add form
+  router.get('/categories/add', function(req, res) {
+    res.render('manage/categories/add');
+  });
+
   // Add a new category
   router.post('/categories', function(req, res) {
     var name = req.body.name && req.body.name.trim();
