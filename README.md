@@ -71,3 +71,4 @@ db.categories.insert({title: 'Fashion'})
 - added 'books' and 'categories' using mongo shell + 2 books
 - *Admin* area located at localhost:8000/manage
 - - CRUD for books and categories
+- edit `config.json` to include csrf to valid data on form submission
