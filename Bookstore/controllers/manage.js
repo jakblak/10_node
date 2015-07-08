@@ -123,7 +123,19 @@ module.exports = function(router) {
       if(err) {
         console.log('update error ', err);
       }
-      req.flash('success', ' Book Added');
+      req.flash('success', ' Book Updated');
+      res.location('/manage/books');
+      res.redirect('/manage/books');
+    });
+  });
+
+  // Delete book
+  router.delete('/books/delete/:id', function(req, res) {
+    Book.remove({ _id: req.params.id}, function(err) {
+      if(err) {
+        console.log(err);
+      }
+      req.flash('success', 'Book Deleted');
       res.location('/manage/books');
       res.redirect('/manage/books');
     });

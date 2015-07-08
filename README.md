@@ -62,7 +62,7 @@ db.categories.insert({title: 'Fashion'})
 
 ## Bookstore
 - Mongoose, Dust, Kraken (MVC on top of Express), Foundation
-- eCommerce shop for books + CRUD admin area
+- eCommerce shop for books + CRUD admin area   
 - yo kraken        + mongodb, mongoose, connect-flash, express-messages
 - > npm start
 - new Routes go in /controllers.  Add *books.js* for the 'details' page
