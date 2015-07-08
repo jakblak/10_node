@@ -110,7 +110,9 @@ module.exports = function(router) {
     var description = req.body.description && req.body.description.trim();
     var cover = req.body.cover && req.body.cover.trim();
 
-    Book.update({ _id: req.params.id}, {
+    Book.update({
+      _id: req.params.id
+    }, {
       title: title,
       category: category,
       description: description,
@@ -120,7 +122,7 @@ module.exports = function(router) {
       price: price
 
     }, function(err) {
-      if(err) {
+      if (err) {
         console.log('update error ', err);
       }
       req.flash('success', ' Book Updated');
@@ -131,13 +133,89 @@ module.exports = function(router) {
 
   // Delete book
   router.delete('/books/delete/:id', function(req, res) {
-    Book.remove({ _id: req.params.id}, function(err) {
-      if(err) {
+    Book.remove({
+      _id: req.params.id
+    }, function(err) {
+      if (err) {
         console.log(err);
       }
       req.flash('success', 'Book Deleted');
       res.location('/manage/books');
       res.redirect('/manage/books');
+    });
+  });
+
+  // Add a new category
+  router.post('/categories', function(req, res) {
+    var name = req.body.name && req.body.name.trim();
+
+    if (name == '') {
+      req.flash('error', "Please fill out required fields");
+      res.location('/manage/categories/add');
+      res.redirect('/manage/categories/add');
+    }
+
+    var newCategory = new Category({
+      name: name
+    });
+
+    newCategory.save(function(err) {
+      if (err) {
+        console.log('save error', err);
+      }
+
+      req.flash('success', "Category Added");
+      res.location('/manage/categories');
+      res.redirect('/manage/categories');
+    });
+  });
+
+
+  // Display category edit form
+  router.get('/categories/edit/:id', function(req, res) {
+    Category.findOne({
+      _id: req.params.id
+    }, function(err, category) {
+      if (err) {
+        console.log(err);
+      }
+      var model = {
+        category: category
+      };
+      res.render('manage/categories/edit', model);
+    });
+  });
+
+  // Edit category
+  router.post('/categories/edit/:id', function(req, res) {
+    var name = req.body.name && req.body.name.trim();
+
+    Category.update({
+      _id: req.params.id
+    }, {
+      name: name
+    }, function(err) {
+      if (err) {
+        console.log('update error', err);
+      }
+
+      req.flash('success', "Category Updated");
+      res.location('/manage/categories');
+      res.redirect('/manage/categories');
+    });
+  });
+
+  // Delete category
+  router.delete('/categories/delete/:id', function(req, res) {
+    Category.remove({
+      _id: req.params.id
+    }, function(err) {
+      if (err) {
+        console.log(err);
+      }
+      req.flash('success', "Category Deleted");
+      res.location('/manage/categories');
+      res.redirect('/manage/categories');
     });
   });
 };
