@@ -18,7 +18,7 @@
       <td>{._id}</td>
       <td>{.name}</td>
       <td><a href="/manage/categories/edit/{._id}" class="button tiny">Edit</a></td>
-      <td><a href="#" class="button tiny alert removeCategory">Delete</a></td>
+      <td><a href="#" class="button tiny alert removeCategory" data-id="{._id}">Delete</a></td>
     </tr>
     {/categories}
   </tbody>
