@@ -1,5 +1,4 @@
 'use strict';
-
 var Book = require('../models/bookModel');
 
 module.exports = function(router) {
