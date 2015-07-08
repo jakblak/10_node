@@ -66,5 +66,8 @@ db.categories.insert({title: 'Fashion'})
 - yo kraken        + mongodb, mongoose, connect-flash, express-messages
 - > npm start
 - new Routes go in /controllers.  Add *books.js* for the 'details' page
+- /controllers files automatically sets routing to name of file -- books.js = /books/...
 - `details.dust` in public/templates/books for the controller
 - added 'books' and 'categories' using mongo shell + 2 books
+- *Admin* area located at localhost:8000/manage
+- - CRUD for books and categories
