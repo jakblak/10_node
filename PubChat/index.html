@@ -9,13 +9,13 @@
     }
     #container {
       width: 700px;
-      margin 0 auto;
+      margin: 0 auto;
     }
     #chatWindow {
       height: 300px;
     }
     #mainWrapper {
-      display: none;
+
     }
     #chatWrapper {
       float: left;
@@ -41,6 +41,7 @@
       background: #f4f4f4;
       padding: 10px;
       margin-left: 20px;
+      display:none;
     }
     input {
       height: 30px;
@@ -52,7 +53,7 @@
     <div id="namesWrapper">
       <h2>Chat IO</h2>
       <p>Create Username: </p>
-      <form id="username">
+      <form id="usernameForm">
       <input size="35" id="username">
       <input type="submit" value="Submit">
     </div>
@@ -63,7 +64,7 @@
       <div id="chatWrapper">
         <div id="chatWindow"></div>
         <form id="messageForm">
-          <input size="35" id="username" placeholder="Type something... ">
+          <input size="35" id="message" placeholder="Type something... ">
           <input type="submit" value="Say it!">
         </form>
       </div>
@@ -75,5 +76,26 @@
       </div>
     </div>
   </div>
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  $(function(){
+    var socket = io.connect();
+    var $messageForm = $('#messageForm');
+    var $message = $('#message');
+    var $chat = $('#chatWindow');
+
+
+    $messageForm.submit(function(e){
+      e.preventDefault();
+      socket.emit('send message', $message.val());
+      $message.val('');
+    });
+
+    socket.on('new message', function(data){
+      $chat.append('<strong>'+data.msg+'<br>');
+    });
+  });
+  </script>
 </body>
 </html>
