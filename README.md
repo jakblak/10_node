@@ -72,3 +72,7 @@ db.categories.insert({title: 'Fashion'})
 - *Admin* area located at localhost:8000/manage
 - - CRUD for books and categories
 - edit `config.json` to include csrf to valid data on form submission
+
+## PubChat
+- Socket.io, Express
+
