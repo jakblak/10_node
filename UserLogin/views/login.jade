@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Register
+  p Please register using the form below
+  form(method='post', action='/users/login', enctype='multipart/form-data')
+    .form-group
+      label Username
+      input.form-control(name='name', type='text', placeholder='Enter Name')
+    .form-group
+      label Password
+      input.form-control(name='email', type='password', placeholder='Enter Password')
+    input.btn.btn-default(name='submit', type='submit', value='Login')

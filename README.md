@@ -84,7 +84,7 @@ db.categories.insert({title: 'Fashion'})
 - MongoLab, Drywall, BCrypt, Grunt, Jade, Flash Messages
 
 ## UserLogin
-- Passport, Mongoose, Multer, Express (validator, flash, messages)
+- Passport, Mongoose, Multer, Jade, Express (validator, flash, messages)
 
 
 
