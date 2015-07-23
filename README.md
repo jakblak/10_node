@@ -74,5 +74,17 @@ db.categories.insert({title: 'Fashion'})
 - edit `config.json` to include csrf to valid data on form submission
 
 ## PubChat
-- Socket.io, Express
+- Socket.io, Express, Jquery
+
+## Find A Doc
+- Cassandra (CQL), CRUD
+- setup directory of doctors  -  http://free-css-templates.com
+
+## Community Events
+- MongoLab, Drywall, BCrypt, Grunt, Jade, Flash Messages
+
+## UserLogin
+- Passport, Mongoose, Multer, Express (validator, flash, messages)
+
+
 
