@@ -84,7 +84,9 @@ db.categories.insert({title: 'Fashion'})
 - MongoLab, Drywall, BCrypt, Grunt, Jade, Flash Messages
 
 ## UserLogin
-- Passport, Mongoose, Multer, Jade, Express (validator, flash, messages)
+- Passport, Mongoose, Multer, Jade, Express (validator, flash, messages), Bcrypt
+- updated Multer in users.js
+- ** Not saving to correct DB??  -  keeps saving to test..
 
 
 

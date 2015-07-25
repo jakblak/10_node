@@ -10,17 +10,16 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var multer = require('multer');
 var flash = require('connect-flash');
-var mongo = require('mongodb');
+//var mongo = require('mongodb');
 var mongoose = require('mongoose');
+//var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-mongoose.connect('mongodb://localhost:nodeauth');
+mongoose.connect('mongodb://localhost:nodeauth2');
 
 var app = express();
-
-// var upload = multer({ dest: 'uploads/' });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,6 +35,9 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Validator
 app.use(expressValidator({
@@ -61,6 +63,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+// make user global enable access on all routes
+app.get('*', function(req, res, next) {
+  res.locals.user = req.user || null;
   next();
 });
 
