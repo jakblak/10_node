@@ -59,6 +59,7 @@ db.categories.insert({title: 'Fashion'})
 - signup for lessons, redirect to My Classes, display classes
 - create Instructor route, view, edit model -> edit details view to include {{type}} for dynamic routing
 - add GET and POST routes in *instructors.js* to create new lessons
+- Error when viewing Lessons for a class
 
 ## Bookstore
 - Mongoose, Dust, Kraken (MVC on top of Express), Foundation
@@ -86,7 +87,7 @@ db.categories.insert({title: 'Fashion'})
 ## UserLogin
 - Passport, Mongoose, Multer, Jade, Express (validator, flash, messages), Bcrypt
 - updated Multer in users.js
-- ** Not saving to correct DB??  -  keeps saving to test..
+- ** Not saving to correct DB??  -  moved db connection to users.model file to fix
 
 
 

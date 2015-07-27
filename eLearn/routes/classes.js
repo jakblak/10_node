@@ -36,7 +36,7 @@ router.get('/:id/lessons', function(req, res, next) {
   });
 });
 
-router.get('/:id/lessons/:lesson_id', ensureAuthenticated function(req, res, next) {
+router.get('/:id/lessons/:lesson_id', ensureAuthenticated, function(req, res, next) {
   Class.getClassesById([req.params.id],function(err, classname) {
     if(err){
       var lesson;

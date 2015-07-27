@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var Schema = mongoose.Schema;
+mongoose.connect('mongodb://localhost/nodeauth');
 
 var UserSchema = new Schema({
   username: {
@@ -25,18 +26,18 @@ var UserSchema = new Schema({
 
 module.exports = mongoose.model('User', UserSchema);
 
-exports.comparePassword = function(candidatePassword, hash, callback) {
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
   bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
     if(err) return callback(err);
     callback(null, isMatch);
   });
 }
 
-exports.getUserById = function(id, callback) {
+module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 }
 
-exports.getUserByUsername = function(username, callback) {
+module.exports.getUserByUsername = function(username, callback) {
   var query = {username: username}
   User.findOne(query, callback);
 }

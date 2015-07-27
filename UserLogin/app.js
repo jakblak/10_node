@@ -17,7 +17,7 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-mongoose.connect('mongodb://localhost:nodeauth2');
+//mongoose.connect('mongodb://localhost:nodeauth2');
 
 var app = express();
 
