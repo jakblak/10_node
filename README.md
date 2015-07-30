@@ -81,13 +81,18 @@ db.categories.insert({title: 'Fashion'})
 - Cassandra (CQL), CRUD
 - setup directory of doctors  -  http://free-css-templates.com
 
-## Community Events
-- MongoLab, Drywall, BCrypt, Grunt, Jade, Flash Messages
-
 ## UserLogin
 - Passport, Mongoose, Multer, Jade, Express (validator, flash, messages), Bcrypt
 - updated Multer in users.js
 - ** Not saving to correct DB??  -  moved db connection to users.model file to fix
 
-
-
+## Community Events
+- MongoLab, Drywall, BCrypt, Grunt, Jade, Flash Messages
+- Drywall  =  user registration system built on Passport (roles/verification)
+- git clone [Drywall](https://github.com/jedireza/drywall)
+- npm install, edit config.js file,   *> grunt* (runs on localhost:3000)
+- Connect to the shell: mongo ds061631.mongolab.com:61631/community_events -u <dbuser> -p <dbpassword>
+- use community_events
+- Run commands to insert collections:  db.admingroups.insert({...}), etc.
+- Go to http://localhost:3000/login/forgot/  and change the pass
+- db.users.update({email: 'your@email.addy'}, {$set:{email:'schroe9@gmail.com'}})
