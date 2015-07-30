@@ -94,6 +94,7 @@ db.categories.insert({title: 'Fashion'})
 - Connect to the shell: mongo ds061631.mongolab.com:61631/community_events -u <dbuser> -p <dbpassword>
 - use community_events
 - Run commands to insert collections:  db.admingroups.insert({...}), etc.
-- Go to http://localhost:3000/login/forgot/  and change the pass   (check secrets.js)
+- Go to http://localhost:3000/login/forgot/  and change the pass   
 - db.users.update({email: 'your@email.addy'}, {$set:{email:'schroe9@gmail.com'}})
 - `Warning`: change google security settings: https://www.google.com/settings/security/lesssecureapps
+- - check *secrets.js* for login details
