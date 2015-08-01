@@ -88,7 +88,7 @@ exports.create = function(req, res, next){
       }
 
       workflow.outcome.record = event;
-      //req.flash('success', 'Event Added');
+      req.flash('success', 'Event Added');
       res.location('/events/');
       res.redirect('/events/');
     });
