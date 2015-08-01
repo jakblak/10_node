@@ -23,8 +23,9 @@ html
             li: a(href='/') Home
             li: a(href='/about/') About
             li: a(href='/events/') Events
-            if !user && !user.username
+            // if !user && !user.username
               li: a(href='/signup/') Sign Up
+
             li: a(href='/contact/') Contact
           ul.nav.navbar-nav.navbar-right
             if user && user.username

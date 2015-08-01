@@ -102,3 +102,4 @@ db.categories.insert({title: 'Fashion'})
 - db.events.insert({name, description, date: newDate('July 4, 2015'), venue... })
 - - create *Events* folder and edit `exports.find` function  -  add to models.js
 - - new `exports.read` function hooks up to the events/details page to display individual event
+- - new **Routes** for Adding and and displaying 'My Events'
