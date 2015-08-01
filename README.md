@@ -98,4 +98,6 @@ db.categories.insert({title: 'Fashion'})
 - db.users.update({email: 'your@email.addy'}, {$set:{email:'schroe9@gmail.com'}})
 - `Warning`: change google security settings: https://www.google.com/settings/security/lesssecureapps
 - - check *secrets.js* for login details
-- In mongo shell: use comevents   --  add events
+- In mongo shell: *db.createCollection('events')*
+- db.events.insert({name, description, date: newDate('July 4, 2015'), venue... })
+- - create *Events* folder and edit exports.find function  -  add to models.js
