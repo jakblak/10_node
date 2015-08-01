@@ -29,7 +29,7 @@ exports.find = function(req, res, next){
     }
     else {
       results.filters = req.query;
-      res.render('events/index', { data: results.data });
+      res.render('myevents/index', { data: results.data });
     }
   });
 };
