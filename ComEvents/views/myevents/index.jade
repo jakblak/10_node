@@ -19,7 +19,7 @@ block body
               a(href='/events/edit/#{event._id}', class='btn btn-default') Edit
               &nbsp;&nbsp;
               i.fa.fa-trash
-              a(id='deleteEvent', data-delete='#{event._id}', href='#') Delete
+              a(class='deleteEvent', data-delete='#{event._id}', href='#') Delete
       else
         p You have no events
     div.col-sm-4
